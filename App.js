@@ -1,10 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import MapsView from './src/screens/MapsView';
+import { PersistGate } from 'redux-persist/integration/react';
+import persistStore from 'redux-persist/es/persistStore';
+import { Provider } from 'react-redux';
+import { store } from './src/redux/store';
+import MapsView from './src/screens/mapView/MapsView';
+
 
 export default function App() {
+  let persistor = persistStore(store)
   return (
-      <MapsView/>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <MapsView />
+      </PersistGate>
+    </Provider>
   );
 }
 
