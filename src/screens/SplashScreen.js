@@ -1,17 +1,32 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { useRef } from 'react'
+import LottieView from 'lottie-react-native';
 
-const SplashScreen = ({navigation}) => {
+const SplashScreen = ({ navigation }) => {
+
+    const animation = useRef(null);
+    const animationPath = '../assets/animatins/animation_ljzjryqf.json'
 
     setTimeout(() => {
 
-        navigation.navigate('Map')
+        navigation.replace('Map')
         // alert('huu')
-    }, 2000)
+    }, 3000)
 
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>SplashScreen</Text>
+            <LottieView
+                autoPlay
+                ref={animation}
+                style={{
+                    // width: 200,
+                    // height: 200,
+                    // backgroundColor: '#eee',
+                    flex:1
+                }}
+                // Find more Lottie files at https://lottiefiles.com/featured
+                source={require(animationPath)}
+            />
         </View>
     )
 }
