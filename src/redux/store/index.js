@@ -17,8 +17,8 @@ const persistedReducer = persistReducer(persistConfig, appReducer);
 export const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
-        serializableCheck: true,
-        immutableCheck: true,
+        serializableCheck: false,
+        immutableCheck: false,
     }).concat(calApis.middleware),
 })
 setupListeners(store.dispatch)

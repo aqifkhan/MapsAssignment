@@ -3,7 +3,7 @@ import React from 'react'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
 const MapsCardsFlatListView = ({ item }) => {
-    console.log('Getting Items =============>>>>>>>>>>>>>>>>>>>', item)
+    // console.log('Getting Items =============>>>>>>>>>>>>>>>>>>>', item)
     return (
         <TouchableOpacity
             style={{ backgroundColor: '#F5F5DC', width: RFPercentage(48), marginHorizontal: RFPercentage(1.5), borderRadius: 10, justifyContent: 'center' }}
@@ -16,20 +16,23 @@ const MapsCardsFlatListView = ({ item }) => {
                         style={{ width: RFPercentage(14), height: RFPercentage(17), borderRadius: 10 }}
                     />
                 </View>
-                <View style={{ width: '68%', marginLeft: 5,justifyContent:'center' }}>
-                    <View style={{}}>
-                        <Text style={{ fontSize: 15 }}>
-                            <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Name</Text>  {item.name.slice(0, 30)}...
+                <View style={{ width: '68%', marginLeft: 5,justifyContent:'space-around' }}>
+                    {/* <View style={{backgroundColor:'red'}}> */}
+                        <Text style={{ fontSize: 15 ,fontWeight:'bold'}}>
+                            {/* <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Name</Text>   */}
+                            {item.name.slice(0, 35)}...
                         </Text>
 
-                        <Text style={{ marginVertical: 3 }}>
-                            <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Address</Text>  {item.addres == "" ? null : item.address}
+                        <Text style={{ marginVertical: 3,fontWeight:'bold' }}>
+                            {/* <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Address</Text>  */}
+                             {item.addres == "" ? null : item.address}
                         </Text>
                         
-                        <Text style={{}}>
-                            <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Timings</Text>  {item.timings}
+                        <Text style={{fontSize:12,fontWeight:'bold'}}>
+                            {/* <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Timings</Text>  */}
+                             {item.timings}
                         </Text>
-                    </View>
+                    {/* </View> */}
                 </View>
             </View>
             <View style={{position:'absolute',right:0,bottom:0,backgroundColor:'yellow',paddingRight:15,paddingBottom:5,paddingLeft:3,borderTopLeftRadius:10}}>
