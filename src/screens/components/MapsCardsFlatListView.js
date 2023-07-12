@@ -3,42 +3,37 @@ import React from 'react'
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
 const MapsCardsFlatListView = ({ item }) => {
-    // console.log('Getting Items =============>>>>>>>>>>>>>>>>>>>', item)
+   
+    const {addressStyle,cardDataView,cardDetials,cardImageView,cartView,nameStyle,openClose,timings} = styles
     return (
         <TouchableOpacity
-            style={{ backgroundColor: '#F5F5DC', width: RFPercentage(48), marginHorizontal: RFPercentage(1.5), borderRadius: 10, justifyContent: 'center' }}
-        // onPress={()=>alert('hii')}
+            style={cartView}
+            activeOpacity={0.7}
         >
-            <View style={{  flexDirection: 'row', marginHorizontal: 5 }}>
+            <View style={cardDataView}>
                 <View style={{}}>
                     <Image
                         source={{ uri: item.featured_image }}
-                        style={{ width: RFPercentage(14), height: RFPercentage(17), borderRadius: 10 }}
+                        style={cardImageView}
                     />
                 </View>
-                <View style={{ width: '68%', marginLeft: 5,justifyContent:'space-around' }}>
-                    {/* <View style={{backgroundColor:'red'}}> */}
-                        <Text style={{ fontSize: 15 ,fontWeight:'bold'}}>
-                            {/* <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Name</Text>   */}
-                            {item.name.slice(0, 35)}...
-                        </Text>
+                <View style={cardDetials}>
+                    <Text style={nameStyle}>
+                        {item.name.slice(0, 35)}...
+                    </Text>
+                    <Text style={addressStyle}>
+                        {item.address}
+                    </Text>
 
-                        <Text style={{ marginVertical: 3,fontWeight:'bold' }}>
-                            {/* <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Address</Text>  */}
-                             {item.addres == "" ? null : item.address}
-                        </Text>
-                        
-                        <Text style={{fontSize:12,fontWeight:'bold'}}>
-                            {/* <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Timings</Text>  */}
-                             {item.timings}
-                        </Text>
-                    {/* </View> */}
+                    <Text style={timings}>
+                        {item.timings}
+                    </Text>
                 </View>
             </View>
-            <View style={{position:'absolute',right:0,bottom:0,backgroundColor:'yellow',paddingRight:15,paddingBottom:5,paddingLeft:3,borderTopLeftRadius:10}}>
-            {
-                item.is_open ? <Text style={{fontWeight:'bold'}}>Opned</Text> : <Text style={{fontWeight:'bold'}}>Closed</Text>
-            }
+            <View style={openClose}>
+                
+                    <Text style={{ fontWeight: 'bold',color:'#FFFFFF' }}>{item.is_open ? 'Opened' : 'Closed'}</Text>
+              
             </View>
         </TouchableOpacity>
     )
@@ -46,4 +41,48 @@ const MapsCardsFlatListView = ({ item }) => {
 
 export default MapsCardsFlatListView
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    cartView: {
+        backgroundColor: '#FFFFFF',
+        width: RFPercentage(48),
+        marginHorizontal: RFPercentage(1.5),
+        borderRadius: 10,
+        justifyContent: 'center'
+    },
+    cardDataView: {
+        flexDirection: 'row',
+        // marginHorizontal: 5
+    },
+    cardImageView: {
+        width: RFPercentage(14),
+        height: RFPercentage(17),
+        // borderRadius: 10
+        borderTopLeftRadius:10,
+        borderBottomLeftRadius:10
+    },
+    cardDetials: {
+        width: '68%', marginLeft: 10, justifyContent: 'space-around'
+    },
+    nameStyle: {
+        fontSize: 15, fontWeight: 'bold'
+    },
+    addressStyle: {
+        marginVertical: 3, fontWeight: 'bold'
+    },
+    timings: {
+        fontSize: 12, fontWeight: 'bold'
+    },
+    openClose: {
+        position: 'absolute',
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'black',
+        paddingRight: 15,
+        paddingBottom: 5,
+        paddingLeft: 10,
+        borderTopLeftRadius: 10,
+        borderBottomRightRadius: 10,
+
+    }
+
+})
