@@ -5,6 +5,7 @@ import persistStore from 'redux-persist/es/persistStore';
 import { Provider } from 'react-redux';
 import { store } from './src/redux/store';
 import MapsView from './src/screens/mapView/MapsView';
+import Navigations from './src/navigations';
 
 
 export default function App() {
@@ -12,7 +13,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <MapsView />
+        <Navigations/>
       </PersistGate>
     </Provider>
   );
