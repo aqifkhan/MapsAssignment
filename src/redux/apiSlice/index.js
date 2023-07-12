@@ -8,7 +8,7 @@ export const calApis = createApi({
     reducerPath: 'calApis',
     baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
     endpoints: (builder) => ({
-        // GET ===>> Get Talent
+   
         getCardsData: builder.query({
             query: () => ({
                 headers: { 'Content-Type': 'application/json' },
